@@ -1,0 +1,48 @@
+I. Schedule
+	A. Hacking starts at noon on the first and ends at noon on the second.
+
+II. Locations
+	A. We have access to the entire building and can enter trottier
+with a key card at night.
+		1. Message #Lockedout if you are locked out of the building.
+
+III. Food
+	A. Food is being provided depending on our dietary restrictions.
+
+IV. Finding a team
+	B. Red nametags mean that they are working on part of the MAIS team. They are accessable in 0100 and online.
+	C. Antoine and Jacob are mentors. They are able to answer questions about AI, ML, and your code.
+		1. One of them is a lecturer with a lot of knowledge about ML.
+		2. Ask technical questions in #technical-questions on Discord.
+
+V. Rules
+	1. Keep the building clean!
+		a. If you are being messy you will be blacklisted and disqualified.
+	2. Don't reuse old projects
+	3. Don't plagerize.
+	4. Don't code or use coding from before 12pm on the 1st and after 12pm on the 2nd.
+	5. No presenting someone else's project as your own.
+	6. Complete a team check-in form before Sunday at 10am to be added to the judging schedule.
+	7. Each team will present. You can use Canva or Google Slides.
+		a. Be prepared to answer questions
+
+VI. Prizes
+	1. 1st prize is 1000
+	2. 2nd prize is a monitor
+	3. 3rd prize is ergonomic mouses
+	A. Subcategories
+		1. People's choice -- voted by other groups
+		2. Best newbie hack -- for groups of U1 and U0
+		3. Honorable mention -- something that didn't fit elsewhere
+		4. Best Hack for Laugh -- funny
+		5. Best Hack for All Arts -- related to arts
+		6. Best Hack for Business -- has financial or business implications
+		7. Best Hack for Impact -- visionary hack that improves society
+
+VII. Criteria
+	A. AI is relevant to the project
+	B. The project is technically difficult enough (hard for your level)
+	C. Originality: is the project new?
+	D. Design? Is the project easy to use and polished?
+	E. Have you thought about the ethical social and environmental impacts of your project?
+	F. (Note that these should go on the final slides).
