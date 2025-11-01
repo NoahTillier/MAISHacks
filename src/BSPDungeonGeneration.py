@@ -5,7 +5,9 @@
 # so rooms[0] is the first room, rooms[0][0] is the first vertex of the first room
 
 import random
+from dataclasses import dataclass
 
+@dataclass
 class Leaf:
     x: int
     y: int
