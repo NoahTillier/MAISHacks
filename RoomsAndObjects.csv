@@ -1,0 +1,13 @@
+Theme,Rooms,Objects,"Dimensions (px)",Room,Has,MutualExclusive,Inexclusive,Exclusive,WallAdjacent,Corner,CenterAxis
+Castle,"Throne Room",Throne,"[80,80]","Throne Room","[Throne,Pillar,Armor,Candle,Chandelier,Window,Painting]","[Throne,Pillar,Armor,Bed,Candle,Table,Oven,Pot,Toilet]","[Painting,Chandelier]",[Window],"[Throne,Armor,Bed,Oven,Painting,Window,Toilet]",[Pillar],"[Throne,Table,Chandelier]"
+,Bedroom,Pillar,"[80,80]",Bedroom,"[Bed,Armor,Candle,Chandelier,Window,Painting]",,,,,,
+,Bathroom,Armor,"[80,80]",Bathroom,"[Candle,Toilet,Painting]",,,,,,
+,Armoury,Bed,"[160,80]",Armoury,"[Armor,Candle,Table,Window]",,,,,,
+,Hall,Candle,"[80,80]",Hall,"[Table,Armor,Candle,Painting,Window,Chandelier]",,,,,,
+,Gallery,Table,"[240,160]",Gallery,"[Armor,Candle,Painting,Window]",,,,,,
+,Kitchen,Oven,"[80,80]",Kitchen,"[Oven,Pot,Window,Candle]",,,,,,
+,,Pot,"[80,80]",,,,,,,,
+,,Painting,"[80,80]",,,,,,,,
+,,Window,"[80,80]",,,,,,,,
+,,Chandelier,"[240,240]",,,,,,,,
+,,Toilet,"[80,80]",,,,,,,,
