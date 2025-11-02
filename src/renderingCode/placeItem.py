@@ -3,6 +3,7 @@ from PIL import Image as PILImage
 from urllib.request import urlopen
 from IPython.display import Image, display
 import numpy as np
+from addFunction import addInexclusive
 
 def placeItem(bg: PILImage.Image, dictionary):
   urls={"Armor": "https://raw.githubusercontent.com/GawainsGreenGirdle/MAISHacks/main/Tokens/Armor.png", "Bed": "https://raw.githubusercontent.com/GawainsGreenGirdle/MAISHacks/main/Tokens/Bed.png", "Candle": "https://raw.githubusercontent.com/GawainsGreenGirdle/MAISHacks/main/Tokens/Candle.png","Chandelier": "https://raw.githubusercontent.com/GawainsGreenGirdle/MAISHacks/main/Tokens/Chandelier.png","Oven": "https://raw.githubusercontent.com/GawainsGreenGirdle/MAISHacks/main/Tokens/Oven.png","Painting": "https://raw.githubusercontent.com/GawainsGreenGirdle/MAISHacks/main/Tokens/Painting.png","Pillar": "https://raw.githubusercontent.com/GawainsGreenGirdle/MAISHacks/main/Tokens/Pillar.png","Pot": "https://raw.githubusercontent.com/GawainsGreenGirdle/MAISHacks/main/Tokens/Pot.png","Table": "https://raw.githubusercontent.com/GawainsGreenGirdle/MAISHacks/main/Tokens/Table.png","Throne": "https://raw.githubusercontent.com/GawainsGreenGirdle/MAISHacks/main/Tokens/Throne.png","Toilet": "https://raw.githubusercontent.com/GawainsGreenGirdle/MAISHacks/main/Tokens/Toilet.png","Window": "https://raw.githubusercontent.com/GawainsGreenGirdle/MAISHacks/main/Tokens/Window.png"}
