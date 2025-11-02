@@ -2,6 +2,7 @@ from typing import List
 from PIL import Image as PILImage
 from urllib.request import urlopen
 from IPython.display import Image, display
+import numpy as np
 
 def corridorCleaner(listOfCorridors, listOfRooms):
   #needs logic to remove corridors from inside rooms

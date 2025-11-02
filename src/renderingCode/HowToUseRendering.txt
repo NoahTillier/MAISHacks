@@ -1,0 +1,39 @@
+First, make a background using:
+img = background().
+The background is used by almost every function to paste new images on top.
+
+
+Then make a 32 by 32 matrix using:
+matrix = np.zeros((32,32))
+The matrix is used by almost every function to keep track of wall locations.
+
+
+Then get your data set for room vertices and corridor coordinates.
+Ex.
+rooms = [[(1,2),(10,2),(10,5),(1,5)],[...],...]
+corridors = [(6, 11, 13, 11), (13, 11, 13, 14),...]
+
+
+Clean the corridors data set to reduce room intersection with:
+corridorCleaner(corridors, rooms)
+
+
+Create the room walls on the background by running:
+walls(img, matrix, rooms)
+
+
+Create the corridor walls on the background by running:
+corridors(img, matrix, corridors)
+
+
+Collect your dataset of items in the form of a dictionary with an interior dictionary.
+Ex. 
+dictionary = {"Throne Room": {"Throne": (13,2),"Pillar1": (5,3), "Pillar2": (5,6),...}, "Bedroom": {...}, ...}
+
+Note that the key for the inner dictionary is a Token object name plus a number differentiating it from the rest. ("Pillar" + "1"). The code whichinterprets the dictionary relies on the second key (key for the inner dictionary) containing the word for the object it points to. Therefore, a second key of "PillarABCD" would be equally valid for a Pillar object -- as would "pIlLAr1".
+
+
+run placeItem(img, dictionary) to distribute the items across the map.
+
+
+run display(img) to display the newly created map.

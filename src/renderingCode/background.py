@@ -1,6 +1,8 @@
+from typing import List
 from PIL import Image as PILImage
 from urllib.request import urlopen
 from IPython.display import Image, display
+import numpy as np
 
 def background() -> PILImage.Image:
   #sets width and height of new image to be 80*32 pixels
@@ -16,9 +18,5 @@ def background() -> PILImage.Image:
   for i in range(32):
     for j in range(32):
       im.paste(blankTile, (i*80,j*80))
-
+  
   return im
-
-print(background())
-img = background()
-display(img)
