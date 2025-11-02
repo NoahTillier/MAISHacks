@@ -1,5 +1,6 @@
 import os, requests
 from dotenv import load_dotenv
+import json
 
 load_dotenv()
 API_KEY = os.getenv("OPENAI_API_KEY")
@@ -19,7 +20,7 @@ def get_dungeon_spec(prompt_paragraph: str):
         
         Mapping rules:
 
-        - Rooms: 'lots', 'many', 'complex', 'labyrinth' => prefer 6-9; 'several', 'medium' => 4-6; 'few', 'small', 'tiny' => 2-4.
+        - Rooms: 'lots', 'many', 'complex', 'labyrinth' => prefer 6-7; 'several', 'medium' => 4-5; 'few', 'small', 'tiny' => 2-3.
           If 'dangerous','deadly','lethal' appear, add +1 to +3 rooms (clamp to 9). If 'super easy' appears, subtract 1-2 (clamp min 2).
         - Theme: temple words (altar, shrine, priest, sanctum) => 'temple'. castle words (keep, battlement, throne, fortress) => 'castle'. Default 'castle' if ambiguous.
         - Difficulty: map tone to 1..5:
@@ -55,6 +56,18 @@ def get_dungeon_spec(prompt_paragraph: str):
             }
         }
     }
-    response = requests.post(url, headers=headers, json=payload)
-
-    return response.json()
+    full_response = requests.post(url, headers=headers, json=payload).json()
+    
+    # return full_response.json()
+    
+    content = full_response['choices'][0]['message']['content']
+    
+    # parse JSON string into dict
+    dungeon_spec = json.loads(content)
+    
+    # just the three values as a tuple
+    return (
+        dungeon_spec['number_of_rooms'],
+        dungeon_spec['theme'],
+        dungeon_spec['difficulty']
+    )
