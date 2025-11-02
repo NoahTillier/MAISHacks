@@ -13,7 +13,9 @@ def addInexclusive(img: PILImage.Image, im2: PILImage.Image, x, y):
   if xSize-80 < i or ySize-80 < j:
     raise Exception("Invalid coordinate for input image size");
   else:
-    img.paste(im2, (i,j))
+    im2 = im2.convert("RGBA")
+    mask = im2.split()[3]
+    img.paste(im2, (i,j), mask)
 
 def add(im1: PILImage.Image, im2: PILImage.Image, matrix: np.array, x, y):
   #note that im1 should be the background or other image such that
