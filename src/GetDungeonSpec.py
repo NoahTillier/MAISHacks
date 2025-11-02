@@ -19,8 +19,8 @@ def get_dungeon_spec(prompt_paragraph: str):
         
         Mapping rules:
 
-        - Rooms: 'lots', 'many', 'complex', 'labyrinth' => prefer 10-15; 'several', 'medium' => 6-9; 'few', 'small', 'tiny' => 3-5.
-          If 'dangerous','deadly','lethal' appear, add +1 to +3 rooms (clamp to 15). If 'super easy' appears, subtract 1-2 (clamp min 3).
+        - Rooms: 'lots', 'many', 'complex', 'labyrinth' => prefer 6-9; 'several', 'medium' => 4-6; 'few', 'small', 'tiny' => 2-4.
+          If 'dangerous','deadly','lethal' appear, add +1 to +3 rooms (clamp to 9). If 'super easy' appears, subtract 1-2 (clamp min 2).
         - Theme: temple words (altar, shrine, priest, sanctum) => 'temple'. castle words (keep, battlement, throne, fortress) => 'castle'. Default 'castle' if ambiguous.
         - Difficulty: map tone to 1..5:
           'super dangerous'/'deadly' -> 5
