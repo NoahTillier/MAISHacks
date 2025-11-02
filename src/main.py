@@ -2,11 +2,19 @@ import genetic_dungeon
 from BSPDungeonGeneration import generate_bsp_dungeon
 import matplotlib.pyplot as plt
 from GetRoomNames import load_room_definitions, identify_room_type
+from GetDungeonSpec import get_dungeon_spec
 
-MAP_W, MAP_H, ROOMS = 30, 30, 5
+# set to true if you want to call the OpenAI API to get dungeon spec (need your own API key)
+api_call = True
 
 if __name__ == "__main__":
     
+    # generate dungeon spec
+    if api_call:
+        dungeon_spec = get_dungeon_spec("Create a small castle dungeon with not many rooms that is easy difficulty.")
+        MAP_W, MAP_H, ROOMS = 30, 30, dungeon_spec[0]
+    else:
+        MAP_W, MAP_H, ROOMS = 30, 30, 5
     
     rooms, corridors, root = generate_bsp_dungeon(MAP_W, MAP_H, ROOMS, rng_seed=42)
     best_layout = genetic_dungeon.run_ga(rooms)
