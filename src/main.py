@@ -1,37 +1,85 @@
 import genetic_dungeon
 from BSPDungeonGeneration import generate_bsp_dungeon
 import matplotlib.pyplot as plt
+from GetRoomNames import load_room_definitions, identify_room_type
+from GetDungeonSpec import get_dungeon_spec
 
-MAP_W, MAP_H, ROOMS = 30, 30, 6
-
-## IMPORTANT:
-## for now, this is just an example of running the genetic algorithm on the BSP dungeon and visualizing the result
+# set to true if you want to call the OpenAI API to get dungeon spec (need your own API key)
+api_call = True
 
 if __name__ == "__main__":
+    
+    # generate dungeon spec
+    if api_call:
+        dungeon_spec = get_dungeon_spec("Create a small castle dungeon with not many rooms that is easy difficulty.")
+        MAP_W, MAP_H, ROOMS = 30, 30, dungeon_spec[0]
+    else:
+        MAP_W, MAP_H, ROOMS = 30, 30, 5
+    
     rooms, corridors, root = generate_bsp_dungeon(MAP_W, MAP_H, ROOMS, rng_seed=42)
     best_layout = genetic_dungeon.run_ga(rooms)
     
+    room_definitions = load_room_definitions()
+    
     plt.figure(figsize=(8, 8))
-    for room, objs in best_layout.items():
-        for obj, (x, y) in objs.items():
-            plt.scatter(x, y, label=obj)
-            plt.text(x + 0.3, y, obj, fontsize=8)
-        
-
-    for room in rooms:
+    
+    for i, room in enumerate(rooms):
         x1, y1 = room[0]
         x2, y2 = room[2]
-        plt.plot([x1, x2, x2, x1, x1], [y1, y1, y2, y2, y1], color='black')
+        plt.plot([x1, x2, x2, x1, x1], [y1, y1, y2, y2, y1], color='black', linewidth=2)
+        
+        # which room key corresponds to this BSP room
+        room_key = None
+        for key in best_layout.keys():
+            if f"Room{i}" in key or key == list(best_layout.keys())[i]:
+                room_key = key
+                break
+        
+        if room_key and room_key in best_layout:
+            objs = best_layout[room_key]
+            placed_objects = list(objs.keys())
+            
+            # room type
+            room_type = identify_room_type(placed_objects, room_definitions)
+            
+            # Place room label at top of room
+            label_x = (x1 + x2) / 2
+            label_y = y1 - 1
+            plt.text(label_x, label_y, room_type, 
+                    fontsize=11, fontweight='bold',
+                    ha='center', va='bottom',
+                    bbox=dict(boxstyle='round,pad=0.5', facecolor='yellow', alpha=0.7))
     
+    # objects
+    colors = plt.cm.tab20(range(20))
+    color_idx = 0
+    plotted_labels = set()
+    
+    for room, objs in best_layout.items():
+        for obj, (x, y) in objs.items():
+            obj_lower = obj.lower()
+            if obj_lower not in plotted_labels:
+                plt.scatter(x, y, label=obj, s=100, color=colors[color_idx % 20], 
+                           edgecolors='black', linewidths=1, zorder=5)
+                plotted_labels.add(obj_lower)
+                color_idx += 1
+            else:
+                plt.scatter(x, y, s=100, color=colors[color_idx % 20],
+                           edgecolors='black', linewidths=1, zorder=5)
+            
+            # draw object name next to it
+            plt.text(x + 0.3, y-0.3, obj, fontsize=7, va='center')
+    
+    # corridors
     for corridor in corridors:
         x1, y1, x2, y2 = corridor
-        plt.plot([x1, x2, ], [y1, y2], color='gray', linestyle='--')
+        plt.plot([x1, x2], [y1, y2], color='gray', linestyle='--', linewidth=1)
 
     plt.gca().invert_yaxis()
-    plt.grid(True)
-    plt.xlabel("X")
-    plt.ylabel("Y")
-    plt.title("Dungeon Room Object Positions")
+    plt.grid(True, alpha=0.3)
+    plt.xlabel("X", fontsize=12)
+    plt.ylabel("Y", fontsize=12)
+    plt.title("Dungeon Room", fontsize=14, fontweight='bold')
+    plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=9)
+    plt.tight_layout()
     plt.show()
-
-    

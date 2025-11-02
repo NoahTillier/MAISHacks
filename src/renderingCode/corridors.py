@@ -4,6 +4,7 @@ from urllib.request import urlopen
 from IPython.display import Image, display
 import numpy as np
 from addFunction import add
+from addFunction import addInexclusive
 
 def corridors(im1: PILImage.Image, matrix: np.array, listOfCorridors):
   url = "https://raw.githubusercontent.com/GawainsGreenGirdle/MAISHacks/main/Tokens/Wall.png"
