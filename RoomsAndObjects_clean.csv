@@ -1,0 +1,13 @@
+Theme,Rooms,Objects,Dimensions (px),Room,Has,MutualExclusive,Inexclusive,Exclusive,WallAdjacent,Corner,CenterAxis,Creatures
+Castle,Throne Room,Throne,"[""80"", ""80""]",Throne Room,"[""Throne"", ""Pillar"", ""Armor"", ""Candle"", ""Chandelier"", ""Window"", ""Painting""]","[""Throne"", ""Pillar"", ""Armor"", ""Bed"", ""Candle"", ""Table"", ""Oven"", ""Pot"", ""Toilet""]","[""Painting"", ""Chandelier""]","[""Window""]","[""Throne"", ""Armor"", ""Bed"", ""Oven"", ""Painting"", ""Window"", ""Toilet""]","[""Pillar""]","[""Throne"", ""Table"", ""Chandelier""]",Wizard
+[],Bedroom,Pillar,"[""80"", ""80""]",Bedroom,"[""Bed"", ""Armor"", ""Candle"", ""Chandelier"", ""Window"", ""Painting""]",[],[],[],[],[],[],Dragon
+[],Bathroom,Armor,"[""80"", ""80""]",Bathroom,"[""Candle"", ""Toilet"", ""Painting""]",[],[],[],[],[],[],Minion
+[],Armoury,Bed,"[""160"", ""80""]",Armoury,"[""Armor"", ""Candle"", ""Table"", ""Window""]",[],[],[],[],[],[],King
+[],Hall,Candle,"[""80"", ""80""]",Hall,"[""Table"", ""Armor"", ""Candle"", ""Painting"", ""Window"", ""Chandelier""]",[],[],[],[],[],[],Knight
+[],Gallery,Table,"[""240"", ""160""]",Gallery,"[""Armor"", ""Candle"", ""Painting"", ""Window""]",[],[],[],[],[],[],Courtier
+[],Kitchen,Oven,"[""80"", ""80""]",Kitchen,"[""Oven"", ""Pot"", ""Window"", ""Candle""]",[],[],[],[],[],[],
+[],[],Pot,"[""80"", ""80""]",[],[],[],[],[],[],[],[],
+[],[],Painting,"[""80"", ""80""]",[],[],[],[],[],[],[],[],
+[],[],Window,"[""80"", ""80""]",[],[],[],[],[],[],[],[],
+[],[],Chandelier,"[""240"", ""240""]",[],[],[],[],[],[],[],[],
+[],[],Toilet,"[""80"", ""80""]",[],[],[],[],[],[],[],[],
