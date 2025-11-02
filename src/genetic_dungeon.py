@@ -1,10 +1,15 @@
 import random, json
 from copy import deepcopy
 import csv
+import os
 
 # load cleaned CSV
 rooms_data = []
-with open("RoomsAndObjects_clean.csv") as f:
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+csv_path = os.path.join(BASE_DIR, "RoomsAndObjects_clean.csv")
+
+with open(csv_path) as f:
     reader = csv.DictReader(f)
     for row in reader:
         for key in ["Has","MutualExclusive","Inexclusive","Exclusive","WallAdjacent","Corner","CenterAxis","Creatures"]:
