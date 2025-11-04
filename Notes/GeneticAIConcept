@@ -1,0 +1,36 @@
+The way a genetic algorithm typically works is:
+- It generates a random combination of individuals
+- It judges each of the individuals for fitness
+- It removes all unfit individuals, then advances the most fit individuals to the next step
+- It merges all fit individuals with one other fit individual by swapping half of the genome, with higher likelihood that fit individuals are merged.
+-It mutates the generation by flipping one bit each time
+-Repeat from judging.
+-Base case when one individual crosses a fitness threshold and/or a certain number of iterations have been run.
+
+
+
+We have a variable n tokens
+We select a number of those tokens which make sense in the desired room type with an API call.
+We then specify the size of the tokens.
+
+Rules:
+- Tokens take up physical space (they can not overlap)
+- There can be multiples of any kind of token.
+- Some tokens require an axis of symmetry in the space where they are placed
+- Some tokens require space around them
+- Some tokens must be placed against a wall.
+
+Optimization idea:
+- Instead of running the mutually exclusive set 1 and mutually exclusive set 2 together, they can both be run seperately to populate the same space.
+-Windows are not placed according to a genetic algorithm, but use something more like the BGS algorithm.
+- There are three mutually exclusive sets -- floor, furniture, ceiling. Floor are all carpet items. Furniture is all furniture items and strucutral items. Ceiling is all hanging items.
+
+Concept Idea:
+- What if each type of item was competing directly with every other type of item in addition to with each other? For example, there's an algorithm that places a number of combinations of candelabras and another which places a number of combinations of tables. Once the fitness of all of the placements are analyzed and before they are merged, the sets compete with each other. 
+
+Lets say that a room is stored by a string of 0s. Ex. a 4 by 4 space would be 0000000000000000, with the first four 0s being the first row of 4 items, and the next being the second row and so forth.
+An item is represented by flipping one of the zeros. For example, a candelabra in the top left corner would be represented by 1000000000000000.
+A table which is 2 squares by 2 squares big could be represented by: 0110011000000000. (There would have to be an algorithm to flip the bits correctly).
+Both of the sets are valid and fit. Therefore, they compete together and both advance to the next set. However, if the candelabra was 0100000000000000 (overlaping with the table), one of the two would be eliminated from the set (chosen randomly). Because there are more smaller items, a large item could be weighted to be more likely to be chosen.
+
+The algorithm would then continue as normal with a merge and bit flip function. It would terminate after a longer number of cycles. It would only end, however, if when all the sets competing with each other competed theno item was eliminated, and all sets were valid sets above a certain fitness threshold.
